@@ -32,6 +32,7 @@ export const CardProjectS=styled.div`
 export const TitleS=styled.p`
     font-weight: 500;
     font-size: ${Fonts.FONT_SIZE_LARGE}px;
+    align-self: flex-start;
     
 `
 

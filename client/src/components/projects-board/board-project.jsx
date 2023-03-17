@@ -5,7 +5,7 @@ import { Color } from "../../app/shared/style_const/style";
 import React, { useState, useEffect } from 'react';
 import { TitleS } from "../cardProject/style";
 import { ProfileContainer } from "../cardmember/style";
-import { SearchS } from "../search/style";
+
 import interact from 'interactjs'
 
 const BoardProject = () => {
@@ -71,7 +71,7 @@ const BoardProject = () => {
                     <p>Projects / Project_Name / Board</p>
                     <TitleS>Lista de tareas</TitleS>
                     <div>
-                        <SearchS></SearchS>
+                        
                         <ProfileContainer width="40px" height="40px" imgUrl={imgUrl} />
                         <ProfileContainer width="40px" height="40px" imgUrl={imgUrl} />
                         <ProfileContainer width="40px" height="40px" imgUrl={imgUrl} />

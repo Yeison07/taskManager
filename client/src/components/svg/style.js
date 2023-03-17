@@ -27,7 +27,7 @@ const svgStyles = ({width, height, color, hoverColor }) => {
 
 
 export const FolderOff = styled(FolderOffIcon)`
-    ${(props) => svgStyles({  })}
+    ${(props) => svgStyles({ height:"120px",width:"600px" })}
 `
 export const FolderOpen = styled(FolderOpenIcon)`
     ${(props) => svgStyles({  })}
@@ -49,7 +49,7 @@ export const Person = styled(PersonIcon)`
 `
 
 export const Search = styled(SearchIcon)`
-    ${(props) => svgStyles({  })}
+    ${(props) => svgStyles({ width:"35px",height:"35px" })}
 `
 export const Task = styled(TaskIcon)`
     ${(props) => svgStyles({  })}

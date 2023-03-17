@@ -1,7 +1,6 @@
 import CardMember from "../cardmember/card-member";
 import { TitleS } from "../cardProject/style";
 import { Container } from "../container/style";
-import Footer from "../footer/footer";
 import { Color } from "../../app/shared/style_const/style";
 import React, { useState, useEffect } from 'react';
 import { helpHttp } from "../../app/utils/helpHttp";
@@ -41,7 +40,6 @@ const ListMembersActive = () => {
                         data.map((el) => <CardMember key={el.id} data={el} />)}
 
                 </Container>
-                <Footer/>
             </Container>
     );
 }

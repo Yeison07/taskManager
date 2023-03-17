@@ -39,7 +39,6 @@ const ListProjectsArch = () => {
         </Link>
         
     </Container>
-    <Footer/>
     </Container>
      );
 }

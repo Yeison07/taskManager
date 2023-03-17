@@ -38,7 +38,6 @@ const ListProjects = () => {
         <CardProject />
         </Link>
     </Container>
-    <Footer/>
     </Container>
      );
 }
