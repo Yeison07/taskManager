@@ -20,10 +20,14 @@ export const ContainerColumn=styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${({bgcolor})=> bgcolor ? bgcolor : ""};
+    
 `
 
 export const ContainerFlex=styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    background-color: ${({bgcolor})=> bgcolor ? bgcolor : ""};
+
 `

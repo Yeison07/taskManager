@@ -70,9 +70,7 @@ const HistoryMembers = () => {
                     <CardHistoryMember></CardHistoryMember>
                     <CardHistoryMember></CardHistoryMember>
                 </ContainerFlex>
-             
             </ContainerColumn>
-            
             </Board>
         </ContainerColumn>
     );

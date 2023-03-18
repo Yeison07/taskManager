@@ -5,9 +5,9 @@ export const CardProjectS=styled.div`
     display: flex;
     align-items: center;
     width: 400px;
-    padding: 0 2.5em;
     transition: transform 100ms ease-in-out;
-
+    margin: 5em 0;
+    cursor: pointer;
     & hr:first-of-type{
         border: 2px solid ${Color.hrLineDark};
     }

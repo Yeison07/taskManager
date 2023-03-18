@@ -7,7 +7,7 @@ flex-direction: column;
     
     
 `
-
+//Arreglar el responsive con el width auto
 export const Board=styled.div`
     background-color: ${Color.backgroundLight};
     margin: 0 auto;
