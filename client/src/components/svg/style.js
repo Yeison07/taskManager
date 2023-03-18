@@ -9,15 +9,15 @@ import { ReactComponent as PersonIcon } from '../../app/shared/svg_icons/person.
 import { ReactComponent as SearchIcon } from '../../app/shared/svg_icons/search.svg';
 import { ReactComponent as TaskIcon } from '../../app/shared/svg_icons/task.svg';
 import { Color } from "../../app/shared/style_const/style";
+import { forwardRef } from "react";
 
 
-const svgStyles = ({width, height, color, hoverColor,stroke }) => {
+const svgStyles = ({width, height, color, hoverColor }) => {
     return css`
     height: ${height || "50px"};
     width: ${width || ""};
-    & path {
+    path {
         fill: ${color || ""};
-        stroke: ${stroke || ""};
     }
     &:hover path{
         fill: ${hoverColor || ""} ;
@@ -49,6 +49,8 @@ export const PersonOff = styled(PersonOffcon)`
 export const Person = styled(PersonIcon)`
     ${(props) => svgStyles({ color:"#fff" })}
 `
+
+
 
 export const Search = styled(SearchIcon)`
     ${(props) => svgStyles({ width:"35px",height:"35px"})}

@@ -9,10 +9,13 @@ export const ContainerSearchInput=styled.div`
     border-radius: 1.5em;
     overflow: hidden;
     padding: 0.5em;
+    transition: border-color 100ms, transform 250ms;
 
     svg{
         margin-right: 0.5em;
     }
+
+
 `
 
 export const SearchInput=styled.input`

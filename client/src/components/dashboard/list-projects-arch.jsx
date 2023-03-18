@@ -2,7 +2,6 @@ import { Color } from "../../app/shared/style_const/style";
 import CardProject from "../cardProject/card-project";
 import { TitleS } from "../cardProject/style";
 import { Container } from "../container/style";
-import Footer from "../footer/footer";
 import React, { useState, useEffect } from 'react';
 import {Link } from "react-router-dom";
 
