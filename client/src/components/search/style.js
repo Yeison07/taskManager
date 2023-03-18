@@ -4,25 +4,32 @@ import { Color, Fonts } from "../../app/shared/style_const/style";
 export const ContainerSearchInput=styled.div`
     display: flex;
     align-items: center;
-    border: 1px solid ${Color.borderMedim};
+    border: 3px solid #353535;
     align-self: flex-start;
+    border-radius: 1.5em;
+    overflow: hidden;
+    padding: 0.5em;
 
-    :hover{
-        border-color:#000;
+    svg{
+        margin-right: 0.5em;
     }
 `
 
 export const SearchInput=styled.input`
     height: 30px;
+    width: 250px;
     border: none;
     outline: none;
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+    color:#353535;
 
     &::placeholder{
-        font-family: 'Roboto',sans-serif;
-        font-size: 15px;
-        text-align: center;
-        color:#000
+        color:#353535;
+        text-align: start;
     }
+
+    
      
 
    

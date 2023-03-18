@@ -11,7 +11,7 @@ const Login = () => {
             <InputS placeholder='Ingrese su código' type="text" />
                 <InputS placeholder='Contraseña' type="password" name="" id="" />
                 <Link to="inicio/listado_proyectos"></Link>
-                <ButtonS onClick={() => navigate('inicio')} bgColorHover="#EC2525" bgColor="#F05454">Iniciar sesion</ButtonS>
+                <ButtonS onClick={() => navigate('inicio/lista_proyectos')} bgColorHover="#EC2525" bgColor="#F05454">Iniciar sesion</ButtonS>
                
             </FormS>
         

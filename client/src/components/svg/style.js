@@ -11,15 +11,17 @@ import { ReactComponent as TaskIcon } from '../../app/shared/svg_icons/task.svg'
 import { Color } from "../../app/shared/style_const/style";
 
 
-const svgStyles = ({width, height, color, hoverColor }) => {
+const svgStyles = ({width, height, color, hoverColor,stroke }) => {
     return css`
     height: ${height || "50px"};
     width: ${width || ""};
     & path {
         fill: ${color || ""};
+        stroke: ${stroke || ""};
     }
     &:hover path{
         fill: ${hoverColor || ""} ;
+        
     }
     `
 }
@@ -49,7 +51,7 @@ export const Person = styled(PersonIcon)`
 `
 
 export const Search = styled(SearchIcon)`
-    ${(props) => svgStyles({ width:"35px",height:"35px" })}
+    ${(props) => svgStyles({ width:"35px",height:"35px"})}
 `
 export const Task = styled(TaskIcon)`
     ${(props) => svgStyles({  })}

@@ -20,7 +20,7 @@ const HistoryMembers = () => {
             <ContainerColumn>
                  <TitleS >Historial de miembros</TitleS>
                 <ContainerSearchInput>
-                <SearchInput />
+                <SearchInput placeholder="Buscar..." />
                 <Search/>
                 </ContainerSearchInput>
                 <ContainerFlex >
