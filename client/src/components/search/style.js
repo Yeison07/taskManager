@@ -1,17 +1,41 @@
 import styled from "styled-components";
 import { Color, Fonts } from "../../app/shared/style_const/style";
-import { Search } from "../svg/style";
 
-export const SearchS=styled.input`
-    height: 30px;
-    border: 1px solid ${Color.hrLineDark};
-    background-size: 20px;
-    padding-left: 2em;
-    
+export const ContainerSearchInput=styled.div`
+    display: flex;
+    align-items: center;
+    border: 3px solid #353535;
+    align-self: flex-start;
+    border-radius: 1.5em;
+    overflow: hidden;
+    padding: 0.5em;
+    transition: border-color 100ms, transform 250ms;
 
-    &:hover{
-        background-color: ${Color.backgroundDark};
+    svg{
+        margin-right: 0.5em;
     }
+
+
+`
+
+export const SearchInput=styled.input`
+    height: 30px;
+    width: 250px;
+    border: none;
+    outline: none;
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+    color:#353535;
+
+    &::placeholder{
+        color:#353535;
+        text-align: start;
+    }
+
+    
+     
+
+   
 
     
 

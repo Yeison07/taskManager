@@ -1,10 +1,10 @@
 import styled from "styled-components";
-
+import { Search } from "../svg/style";
 export const InputS=styled.input`
     border: none;
     background-color: #fff;
-    height: 50px;
-    width: 550px;
+    height: 60px;
+    width: 350px;
     
     &::placeholder{
         font-family: 'Roboto',sans-serif;

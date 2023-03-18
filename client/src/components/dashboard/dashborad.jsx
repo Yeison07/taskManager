@@ -9,6 +9,7 @@ const DashBoard = () => {
         <GridContainer bgcolor={Color.backgroundDark}>
             <SideBar/>
             <Outlet />
+            <Footer/>
         </GridContainer>
      );
 }

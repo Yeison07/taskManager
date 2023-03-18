@@ -1,9 +1,5 @@
 export const Color = {
     primary: "#F05454",
-    succes: "",
-    danger: "",
-    warning: "",
-    secondary: "",
     textWhite:"#FFFFFF",
     textDarkest: '#121212',
     textDark: '#5c5c5c',

@@ -8,7 +8,7 @@ export const GridContainer = styled.div`
     grid-template-rows: auto auto;
     color: ${Color.textDarkest};
     background-color: ${({ bgcolor }) => bgcolor ? bgcolor : "none"} ;
-    height: 100vh;
+    min-height: 100vh;
     
 `
 

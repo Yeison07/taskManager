@@ -9,17 +9,19 @@ import { ReactComponent as PersonIcon } from '../../app/shared/svg_icons/person.
 import { ReactComponent as SearchIcon } from '../../app/shared/svg_icons/search.svg';
 import { ReactComponent as TaskIcon } from '../../app/shared/svg_icons/task.svg';
 import { Color } from "../../app/shared/style_const/style";
+import { forwardRef } from "react";
 
 
 const svgStyles = ({width, height, color, hoverColor }) => {
     return css`
     height: ${height || "50px"};
     width: ${width || ""};
-    & path {
+    path {
         fill: ${color || ""};
     }
     &:hover path{
         fill: ${hoverColor || ""} ;
+        
     }
     `
 }
@@ -27,7 +29,7 @@ const svgStyles = ({width, height, color, hoverColor }) => {
 
 
 export const FolderOff = styled(FolderOffIcon)`
-    ${(props) => svgStyles({  })}
+    ${(props) => svgStyles({ height:"120px",width:"600px" })}
 `
 export const FolderOpen = styled(FolderOpenIcon)`
     ${(props) => svgStyles({  })}
@@ -48,8 +50,10 @@ export const Person = styled(PersonIcon)`
     ${(props) => svgStyles({ color:"#fff" })}
 `
 
+
+
 export const Search = styled(SearchIcon)`
-    ${(props) => svgStyles({  })}
+    ${(props) => svgStyles({ width:"35px",height:"35px"})}
 `
 export const Task = styled(TaskIcon)`
     ${(props) => svgStyles({  })}
