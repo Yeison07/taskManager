@@ -1,7 +1,6 @@
-import { Container, ContainerColumn, ContainerFlex } from "../container/style";
+import {ContainerColumn, ContainerFlex } from "../container/style";
 import Login from "../login/login";
 import { Color, Fonts } from "../../app/shared/style_const/style";
-import ModalTask from "../modal/modal";
 import { ContainerHome } from "./style";
 
 
@@ -19,7 +18,7 @@ const Home = () => {
                     <img width={"550px"} src="https://ww2.ufps.edu.co/public/archivos/elementos_corporativos/Logo-nuevo-vertical.png" alt="Logotipo Universidad
                     Francisco de Paula Santander" />
                 </ContainerFlex>
-            {/*<ModalTask/>*/}
+            
         </ContainerHome>
 
             

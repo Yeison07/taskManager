@@ -1,7 +1,20 @@
 import styled from "styled-components";
 import { Color, Fonts } from "../../app/shared/style_const/style";
 
+export const ModalPosition=styled.section`
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+    overflow: auto;
+
+`
 export const ModalS=styled.div`
+    position: relative;
+    top: 10%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -22,6 +35,7 @@ export const ModalHeader=styled.div`
 export const CloseModalIcon=styled.div`
     font-size: ${Fonts.FONT_SIZE_SMALL};
     padding: 0.5em 1em; 
+    cursor: pointer;
     :hover{
         background-color: #00000010;
     }

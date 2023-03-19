@@ -27,7 +27,7 @@ export const TaskS = styled.div`
     margin: 0.4em 0;
     padding: 1em 1em;
     font-size: ${Fonts.FONT_SIZE_SMALL}px;
-    cursor: pointer;
+    cursor: pointer !important;
     touch-action: none;
     user-select: none;
     

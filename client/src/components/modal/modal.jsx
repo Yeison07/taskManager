@@ -1,11 +1,11 @@
 import { AddMemberIcon, CloseModalIcon, IconAssignees, ModalAssignees, ModalBody, ModalDescription, ModalHeader, ModalS, ModalSubTitle, ModalTaskId, ModalTitle } from "./style";
 import imgUrl from "../../app/shared/img/profile_pic.jpg"
-const ModalTask = () => {
+const ModalTask = ({onClose}) => {
     return ( 
         <ModalS>
             <ModalHeader>
                 <ModalTaskId>TASK-1321312</ModalTaskId>
-                <CloseModalIcon>X</CloseModalIcon>
+                <CloseModalIcon onClick={onClose}>X</CloseModalIcon>
             </ModalHeader>
             <ModalBody>
                 <div>
