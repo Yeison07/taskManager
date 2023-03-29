@@ -10,7 +10,16 @@ export const ModalPosition=styled.section`
     height: 100%;
     background-color: #00000090;
     overflow: auto;
+    animation: modal-appear 350ms;
 
+    @keyframes modal-appear {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
 `
 export const ModalS=styled.div`
     position: relative;
@@ -24,6 +33,7 @@ export const ModalS=styled.div`
     height: auto;
     background-color: gainsboro;
     overflow: hidden;
+    
 
 `
 export const ModalHeader=styled.div`
