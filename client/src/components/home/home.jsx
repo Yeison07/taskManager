@@ -2,16 +2,14 @@ import {ContainerColumn, ContainerFlex } from "../container/style";
 import Login from "../login/login";
 import { Color, Fonts } from "../../app/shared/style_const/style";
 import { ContainerHome } from "./style";
+import { TitleS } from "../cardProject/style";
 
 
 const Home = () => {
     return (
         <ContainerHome>
                 <ContainerColumn bgcolor={Color.backgroundDark}>
-                    <p>
-                        Sistema web para el control y seguimiento de los procesos en los semilleros de investigación en el programa de ingenieria de sistemas.
-                    </p>
-                    <h1>Iniciar sesion</h1>
+                <p>TaskMe!</p>
                     <Login/>
                 </ContainerColumn>
                 <ContainerFlex bgcolor={Color.backgroundMedium}>
