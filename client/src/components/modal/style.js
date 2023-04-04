@@ -8,7 +8,7 @@ export const ModalPosition=styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #00000090;
+    background-color: #ffffff99;
     overflow: auto;
 
 `
@@ -19,17 +19,29 @@ export const ModalS=styled.div`
     flex-direction: column;
     margin: 0 auto;
     padding: 0 2em;
-    width: 50%;
+    width: 55%;
     min-height: 400px;
     height: auto;
-    background-color: gainsboro;
+    background-color: ${Color.backgroundLight};
     overflow: hidden;
+    border-radius: 0.2em;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
 `
 export const ModalHeader=styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    svg{
+        cursor: pointer;
+        margin-left: auto;
+        padding: 0.5em;
+    }
+
+    svg:hover{
+        background-color: ${Color.backgroundDark};
+    }
     
 `
 export const CloseModalIcon=styled.div`
@@ -47,17 +59,28 @@ export const ModalTaskId=styled.p`
     
     :hover{
         background-color: #00000020;
+        border-radius:0.1em;
     }
 `
+
 export const ModalBody=styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
-    column-gap: 13%;
-    margin-top: 2em;
+    column-gap: 10%;
+    margin-top: 0.5em;
+    width: 98%;
+    
 `
+export const ModalBodyContent=styled.div`
+    display: flex;
+    flex-direction: column;
+    
+`
+
 export const ModalAssignees=styled.div`
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     font-size: ${Fonts.FONT_SIZE_SMALL};
     
 `
@@ -66,24 +89,36 @@ export const IconAssignees=styled.div`
     display: flex;
     align-items: center;
     padding: 0 1em;
-    width: 30%;
-    
+    max-height: 50px;
+    margin: 0.5em 1em 0 0;
+    cursor: pointer;
+    background-color: ${Color.backgroundDark};
+    border-radius: 0.3em;
     :hover{
         background-color: #00000010;
+        border-radius:0.2em;
     }
 `
 export const AddMemberIcon=styled.div`
     color: blue;
+    max-height: 50px;
+    cursor: pointer;
     ::before{
         content: "+";
+        padding: 0.5em;
     }
+    :hover::after{
+        
+    }
+    
 `
 
 export const ModalSubTitle=styled.p`
     font-weight: 600;
+    width: 100%;
+    max-height: 30px;
 `
 export const ModalTitle=styled.p`
-    margin: 0;
     font-size: ${Fonts.FONT_SIZE_LARGE}px;
     color: ${Fonts.PRIMARY_COLOR};
 `

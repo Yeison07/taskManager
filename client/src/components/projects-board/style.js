@@ -9,7 +9,7 @@ export const BoardS = styled.div`
     justify-content: start;
     padding: 1.5em 1.5em;
     margin: 1em 0.5em;
-    min-height: 200px;
+    min-height: 400px;
     min-width: 320px;
     & > p{
         margin: 0;
@@ -19,6 +19,7 @@ export const BoardS = styled.div`
 `
 
 export const TaskS = styled.div`
+    color: ${Color.textDarkest};
     border: 0.5px solid ${Color.backgroundDark};
     border-radius: 0.2em;
     box-shadow: 2px 2px 5px #00000030;

@@ -1,4 +1,4 @@
-import { Container } from "../container/style";
+import { Container, ContainerColumn, ContainerFlex } from "../container/style";
 import imgUrl from "../../app/shared/img/profile_pic.jpg"
 import { BoardS, TaskS, TaskSHeader } from "./style";
 import { Color } from "../../app/shared/style_const/style";
@@ -58,6 +58,14 @@ const BoardProject = () => {
     }
     dragAndDrop()
 
+    const handleClose=()=>{
+        let answer=confirm("¿Estas seguro de que deseas borrar esta tarea?, el proceso es irreversible")
+        if(answer){
+            setModalIsOpen(false)
+        }
+        return
+    
+    }
     
     useEffect(() => {
         if(modalIsOpen) document.body.style.overflow="hidden"
@@ -65,8 +73,8 @@ const BoardProject = () => {
     }, [modalIsOpen]);
 
     return (
-        <Container height="auto" bgcolor={Color.backgroundLight} direction="column">
-            <Container justify="flex-start" align="flex-start" direction="column" height="auto">
+        <ContainerColumn bgcolor={Color.backgroundLight}>        
+            <Container  justify="flex-start" align="flex-start" direction="column" height="auto">
                 <TaskSHeader>
                     <p>Projects / Project_Name / Board</p>
                     <TitleS>Lista de tareas</TitleS>
@@ -78,6 +86,8 @@ const BoardProject = () => {
                     </div>
                 </TaskSHeader>
             </Container>
+            <ContainerFlex>
+
             <Container align="flex-start" height="auto" wrap="wrap">
                 <BoardS className="drop">
                     <p>BACKLOG</p>
@@ -87,13 +97,13 @@ const BoardProject = () => {
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
                     </TaskS>
-                    <TaskS className="drag">
+                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
                     </TaskS>
-                    <TaskS className="drag">
+                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
@@ -102,13 +112,13 @@ const BoardProject = () => {
                 </BoardS>
                 <BoardS className="drop">
                     <p>ASIGNADA</p>
-                    <TaskS className="drag">
+                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
                     </TaskS>
-                    <TaskS className="drag">
+                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
@@ -117,7 +127,7 @@ const BoardProject = () => {
                 </BoardS>
                 <BoardS className="drop">
                     <p>EN PROCESO</p>
-                    <TaskS className="drag">
+                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
@@ -126,7 +136,7 @@ const BoardProject = () => {
                 </BoardS>
                 <BoardS className="drop">
                     <p>COMPLETA</p>
-                    <TaskS className="drag">
+                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}> 
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
@@ -158,12 +168,14 @@ const BoardProject = () => {
                     </TaskS>
                 </BoardS>
             </Container>
+            </ContainerFlex>
+
             {modalIsOpen && createPortal(
         <ModalPosition>
-        <ModalTask onClose={()=>{setModalIsOpen(false)}}/>        
+        <ModalTask onClose={handleClose}/>        
         </ModalPosition>,document.body
             )}
-        </Container>
+        </ContainerColumn>
     );
 }
 import ModalTask from "../modal/modal";

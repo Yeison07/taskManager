@@ -6,5 +6,6 @@ export const FormS=styled.form`
     & > *{
         margin: 1em 0;
     }
+    
 
 `;

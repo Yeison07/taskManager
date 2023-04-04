@@ -8,8 +8,8 @@ import { ReactComponent as PersonOffcon } from '../../app/shared/svg_icons/perso
 import { ReactComponent as PersonIcon } from '../../app/shared/svg_icons/person.svg';
 import { ReactComponent as SearchIcon } from '../../app/shared/svg_icons/search.svg';
 import { ReactComponent as TaskIcon } from '../../app/shared/svg_icons/task.svg';
+import { ReactComponent as TrashIcon } from '../../app/shared/svg_icons/trash.svg';
 import { Color } from "../../app/shared/style_const/style";
-import { forwardRef } from "react";
 
 
 const svgStyles = ({width, height, color, hoverColor }) => {
@@ -50,14 +50,19 @@ export const Person = styled(PersonIcon)`
     ${(props) => svgStyles({ color:"#fff" })}
 `
 
-
-
 export const Search = styled(SearchIcon)`
     ${(props) => svgStyles({ width:"35px",height:"35px"})}
 `
 export const Task = styled(TaskIcon)`
     ${(props) => svgStyles({  })}
 `
+export const Trash = styled(TrashIcon)`
+    ${(props) => svgStyles({ width:"25px",height:"25px"})}
+    :hover{
+        background-color: ${Color.backgroundDark};
+    }
+`
+
 
 
 
