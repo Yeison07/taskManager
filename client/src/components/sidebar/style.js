@@ -23,7 +23,7 @@ export const SideBarMenu = styled.div`
         display:flex;
         background-color: ${Color.primary};
         height: 90px;
-        color:#fff;
+        color: ${Color.textWhite};
         font-weight: ${Fonts.FONT_WEIGHT_MEDIUM};
         font-size: ${Fonts.FONT_SIZE_MEDIUM}px;
     }

@@ -8,7 +8,7 @@ export const ModalPosition=styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff99;
+    background-color: ${Color.backgroundLight}99;
     overflow: auto;
     animation: modal-appear 350ms;
 
