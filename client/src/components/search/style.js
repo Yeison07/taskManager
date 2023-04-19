@@ -4,7 +4,7 @@ import { Color, Fonts } from "../../app/shared/style_const/style";
 export const ContainerSearchInput=styled.div`
     display: flex;
     align-items: center;
-    border: 3px solid #353535;
+    border: 3px solid ${Color.ContainerSearchInputBorder};
     align-self: flex-start;
     border-radius: 1.5em;
     overflow: hidden;

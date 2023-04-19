@@ -13,8 +13,11 @@ export const Color = {
     borderMedim: "#DFDFDF",
     hrLineLight: "#EBEBEB",
     hrLineDark: "#DEDEDE",
-    selectLight: "#eeeeee"
-
+    selectLight: "#eeeeee",
+    CloseModalIconPointerhover: "#00000010",
+    ModalTaskIdhover: "#00000020",
+    TaskBoxShadow: "#00000030",
+    ContainerSearchInputBorder: "#353535"
 }
 
 export const Fonts = {

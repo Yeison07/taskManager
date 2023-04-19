@@ -22,7 +22,7 @@ export const TaskS = styled.div`
     color: ${Color.textDarkest};
     border: 0.5px solid ${Color.backgroundDark};
     border-radius: 0.2em;
-    box-shadow: 2px 2px 5px #00000030;
+    box-shadow: 2px 2px 5px ${Color.TaskBoxShadow};
     background-color: ${Color.backgroundLight};
     width: 290px;
     margin: 0.4em 0;

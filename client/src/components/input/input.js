@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Search } from "../svg/style";
 export const InputS=styled.input`
     border: none;
-    background-color: #fff;
+    background-color: ${Color.backgroundLight};
     height: 60px;
     width: 350px;
     

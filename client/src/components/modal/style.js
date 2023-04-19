@@ -58,7 +58,7 @@ export const CloseModalIcon=styled.div`
     padding: 0.5em 1em; 
     cursor: pointer;
     :hover{
-        background-color: #00000010;
+        background-color:${Color.cursorPointerhover};
     }
 `
 
@@ -67,7 +67,7 @@ export const ModalTaskId=styled.p`
     padding: 0.5em 1em;
     
     :hover{
-        background-color: #00000020;
+        background-color: ${Color.ModalTaskIdhover};
         border-radius:0.1em;
     }
 `
@@ -104,7 +104,7 @@ export const IconAssignees=styled.div`
     background-color: ${Color.backgroundDark};
     border-radius: 0.3em;
     :hover{
-        background-color: #00000010;
+        background-color: ${Color.CloseModalIconPointerhover};
         border-radius:0.2em;
     }
 `
