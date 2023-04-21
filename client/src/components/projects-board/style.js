@@ -23,7 +23,7 @@ export const TaskS = styled.div`
     border: 0.5px solid ${Color.backgroundDark};
     border-radius: 0.2em;
     box-shadow: 2px 2px 5px #00000030;
-    background-color: ${Color.backgroundLight};
+    background-color: ${Color.backgroundWhite};
     width: 290px;
     margin: 0.4em 0;
     padding: 1em 1em;

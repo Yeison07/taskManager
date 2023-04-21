@@ -6,17 +6,26 @@ import React, { useState, useEffect } from 'react';
 import { TitleS } from "../cardProject/style";
 import { ProfileContainer } from "../cardmember/style";
 import { createPortal } from 'react-dom';
-
-
+import { useQuery } from "@tanstack/react-query";
 import interact from 'interactjs'
+import ModalTask from "../modal/modal";
+import { ModalPosition } from "../modal/style";
+import { getProjectsByEmail } from "../../api/userApi";
 
 const BoardProject = () => {
     const [modalIsOpen, setModalIsOpen] = useState(null)
-
     const position = { x: 0, y: 0 }
     const initialPosition = { x: 0, y: 0 }
+
     
-    const dragAndDrop=()=>{
+/*
+    const query=useQuery({
+        queryKey:["projects"],
+        queryFn: getProjectsByEmail
+    })
+    */
+
+    const dragAndDrop = () => {
         interact('.drag').draggable({
             listeners: {
                 start(event) {
@@ -28,34 +37,35 @@ const BoardProject = () => {
                     position.y += event.dy
                     event.target.style.transform =
                         `translate(${position.x}px, ${position.y}px)`
-                        event.target.style.transform +=
+                    event.target.style.transform +=
                         `rotate(5deg)`
-                        event.target.style.zIndex=`2`
-            event.target.style.transition=`transform 60ms`
+                    event.target.style.zIndex = `2`
+                    event.target.style.transition = `transform 60ms`
                 },
                 end(event) {
                     event.target.style.transform =
                         `translate(${initialPosition.x}px, ${initialPosition.y}px)`
                     position.x = 0
                     position.y = 0
-                    event.target.style.zIndex=`1`
-                    event.target.style.animation= "appear 300ms"
+                    event.target.style.zIndex = `1`
+                    event.target.style.animation = "appear 300ms"
                 },
-    
+
             }
         })
-    
+
         interact('.drop')
-      .dropzone({
-        ondrop: function (event) {
-            console.log()
-            event.target.insertAdjacentElement('beforeend', event.relatedTarget)
-        }
-      })
-      .on('dropactivate', function (event) {
-        event.target.classList.add('drop-activated')
-      })
+            .dropzone({
+                ondrop: function (event) {
+                    console.log()
+                    event.target.insertAdjacentElement('beforeend', event.relatedTarget)
+                }
+            })
+            .on('dropactivate', function (event) {
+                event.target.classList.add('drop-activated')
+            })
     }
+   
     dragAndDrop()
 
     const handleClose=()=>{
@@ -68,9 +78,11 @@ const BoardProject = () => {
     }
     
     useEffect(() => {
-        if(modalIsOpen) document.body.style.overflow="hidden"
-        else if(!modalIsOpen) document.body.style.overflow=""
+        if (modalIsOpen) document.body.style.overflow = "hidden"
+        else if (!modalIsOpen) document.body.style.overflow = ""
     }, [modalIsOpen]);
+
+
 
     return (
         <ContainerColumn bgcolor={Color.backgroundLight}>        
@@ -91,7 +103,7 @@ const BoardProject = () => {
             <Container align="flex-start" height="auto" wrap="wrap">
                 <BoardS className="drop">
                     <p>BACKLOG</p>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
+                    <TaskS className="drag" onClick={() => { setModalIsOpen(true) }}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
                         <img width="20" src={imgUrl} alt="" />
                         <img width="20" src={imgUrl} alt="" />
@@ -178,7 +190,4 @@ const BoardProject = () => {
         </ContainerColumn>
     );
 }
-import ModalTask from "../modal/modal";
-import { ModalPosition } from "../modal/style";
-
 export default BoardProject;
