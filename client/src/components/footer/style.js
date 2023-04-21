@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Color, Fonts } from "../../app/shared/style_const/style";
 
 export const FooterS=styled.footer`
-    background-color: ${Color.backgroundLight};
+    background-color: ${Color.backgroundWhite};
     grid-column: 2;
     display: flex;
     align-items: center;

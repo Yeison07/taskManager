@@ -85,7 +85,7 @@ const BoardProject = () => {
 
 
     return (
-        <ContainerColumn bgcolor={Color.backgroundLight}>        
+        <ContainerColumn bgcolor={Color.backgroundWhite}>        
             <Container  justify="flex-start" align="flex-start" direction="column" height="auto">
                 <TaskSHeader>
                     <p>Projects / Project_Name / Board</p>
