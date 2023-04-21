@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { InputS } from "../input/input";
-import { FormS } from '../form/style';
+import { ButtonForm, FormS, InputForm, LabelForm } from '../form/style';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ButtonS } from '../button/style';
@@ -31,10 +31,17 @@ const Login = () => {
     }, [])
     
     return ( 
+      <>
             <FormS>
-                <TitleS>INICIAR SESION CON GOOGLE</TitleS>
-                <div id='signInDiv' />
+              <TitleS>Iniciar sesion</TitleS>
+              <LabelForm htmlFor='inputName'>Nombre</LabelForm>
+              <InputForm name='inputName'/>
+              <LabelForm htmlFor='inputName'>Contraseña</LabelForm>
+              <InputForm name='inputName'/>
+              <ButtonForm onClick={()=>{navigate("/inicio/lista_proyectos")}}>Iniciar sesion</ButtonForm>
+                  <div style={{marginTop:"5em",alignSelf:"center"}} id='signInDiv' />
             </FormS>
+      </>
         
      );
      

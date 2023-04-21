@@ -1,12 +1,15 @@
 export const Color = {
     primary: "#F05454",
+    darkShadow: "#23293D",
+    LightAcent:"#D19E97",
     textWhite:"#FFFFFF",
     textDarkest: '#121212',
     textDark: '#5c5c5c',
     textMedium: '#',
     textLight: '#bcbcbc',
     textLink: '#686868',
-    backgroundLight: "#FFFFFF",
+    backgroundWhite:"#ffffff",
+    backgroundLight: "#F1F4EF",
     backgroundMedium: "#EFF2F3", //30%
     backgroundDark: "#F5F5F5",
     borderLight: "#E2E2E2",
