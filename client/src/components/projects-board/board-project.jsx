@@ -18,12 +18,33 @@ const BoardProject = () => {
     const initialPosition = { x: 0, y: 0 }
 
     
-/*
-    const query=useQuery({
-        queryKey:["projects"],
-        queryFn: getProjectsByEmail
+    
+    const {data:projectData,error:errorData,isLoading}=useQuery({
+        queryKey:["tasks"],
+        queryFn: getAllTask
     })
-    */
+
+    const loadTasks=()=>{
+        if(isLoading){
+            return <p>Cargado espera un momento</p>
+        }
+        else if (error){
+            return <p>Ocurrió un problema con el servidor, intenta más tarde</p>
+        }
+        else {
+            return projectData.map((elem)=>{
+                return <TaskS className="drag" onClick={() => { setModalIsOpen(true) }}>
+                    <p>{elem.description}</p>
+                     <img width="20" src={imgUrl} alt="" />
+                        <img width="20" src={imgUrl} alt="" />
+                        <img width="20" src={imgUrl} alt="" />
+                </TaskS>
+            })
+        }
+    }
+
+    
+    
 
     const dragAndDrop = () => {
         interact('.drag').draggable({
@@ -103,81 +124,25 @@ const BoardProject = () => {
             <Container align="flex-start" height="auto" wrap="wrap">
                 <BoardS className="drop">
                     <p>BACKLOG</p>
-                    <TaskS className="drag" onClick={() => { setModalIsOpen(true) }}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
+                    
                 </BoardS>
                 <BoardS className="drop">
                     <p>ASIGNADA</p>
                     <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
+                       
                     </TaskS>
                     <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
+                      
                     </TaskS>
                 </BoardS>
                 <BoardS className="drop">
                     <p>EN PROCESO</p>
                     <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
+                      
                     </TaskS>
                 </BoardS>
                 <BoardS className="drop">
                     <p>COMPLETA</p>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}> 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
-                    <TaskS className="drag">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
-                    <TaskS className="drag">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
-                    <TaskS className="drag">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
-                    <TaskS className="drag">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis provident possimus ratione dicta aliquid non harum odit ut. Ex vero illum amet laudantium ea minus ab qui reiciendis, consequuntur necessitatibus?</p>
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                    </TaskS>
                 </BoardS>
             </Container>
             </ContainerFlex>

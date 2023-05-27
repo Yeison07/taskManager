@@ -2,8 +2,6 @@ import axiosInstance from "./axiosConfig";
 
 const userApi = axiosInstance
 
-userApi.defaults.baseURL="http://localhost:8004"
-
 export const registerNewUser = async (userData: object) => {
 
 }
@@ -29,3 +27,15 @@ export const getProjectsByEmail = async (inputEmail: string) => {
     },config)
     return res.data
 }
+
+export const getAllTask = async () => {
+    const config={
+        headers:{
+        }
+    }
+    const res = await userApi.post(`/api/v1/projects/getAllTask`,{
+        email:"hola@hotmail.com"
+    },config)
+    return res.data
+}
+

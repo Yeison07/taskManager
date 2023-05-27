@@ -7,7 +7,7 @@ const ModalTask = ({onClose}) => {
             <ModalHeader>
                 <ModalTaskId>TASK-1321312</ModalTaskId>
                 <Trash/>
-                <CloseModalIcon onClick={onClose}>X</CloseModalIcon>
+                <CloseModalIcon>X</CloseModalIcon>
             </ModalHeader>
             <ModalBody>
                 <ModalBodyContent>
