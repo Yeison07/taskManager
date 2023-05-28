@@ -23,8 +23,19 @@ export const getProjectsByEmail = async (inputEmail: string) => {
         }
     }
     const res = await userApi.post(`/api/v1/users/getProjectByUserId`,{
-        email:"hola@hotmail.com"
+        email:inputEmail
     },config)
+    return res.data
+}
+
+export const getProjectsData = async (projects_ids: []) => {
+    const config={
+        headers:{
+        }
+    }
+    const res = await userApi.post(`/api/v1/users/getAllProjectsDataById`,
+        projects_ids
+    ,config)
     return res.data
 }
 
