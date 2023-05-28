@@ -6,45 +6,51 @@ import React, { useState, useEffect } from 'react';
 import { TitleS } from "../cardProject/style";
 import { ProfileContainer } from "../cardmember/style";
 import { createPortal } from 'react-dom';
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import interact from 'interactjs'
 import ModalTask from "../modal/modal";
 import { ModalPosition } from "../modal/style";
-import { getProjectsByEmail } from "../../api/userApi";
+import { getAllTask, updateTaskState } from "../../api/userApi";
 
 const BoardProject = () => {
     const [modalIsOpen, setModalIsOpen] = useState(null)
     const position = { x: 0, y: 0 }
     const initialPosition = { x: 0, y: 0 }
-
-    
-    
-    const {data:projectData,error:errorData,isLoading}=useQuery({
-        queryKey:["tasks"],
+    const [task,setTask] = useState({
+        id: "",
+        status: {
+            id: ""
+        }
+    })
+   
+    const { data: projectData, error: errorData, isLoading } = useQuery({
+        queryKey: ["tasks"],
         queryFn: getAllTask
     })
 
-    const loadTasks=()=>{
-        if(isLoading){
+    const taskSave = useMutation({
+        mutationKey: ["taskSave"],
+        mutationFn: updateTaskState
+    })
+
+    const loadTasks = () => {
+        if (isLoading) {
             return <p>Cargado espera un momento</p>
         }
-        else if (error){
+        else if (errorData) {
             return <p>Ocurrió un problema con el servidor, intenta más tarde</p>
         }
         else {
-            return projectData.map((elem)=>{
-                return <TaskS className="drag" onClick={() => { setModalIsOpen(true) }}>
+            return projectData.map((elem) => {
+                return <TaskS id={elem.id} key={elem.id} className="drag" onClick={() => { setModalIsOpen(true) }}>
                     <p>{elem.description}</p>
-                     <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
-                        <img width="20" src={imgUrl} alt="" />
+                    <img width="20" src={imgUrl} alt="" />
+                    <img width="20" src={imgUrl} alt="" />
+                    <img width="20" src={imgUrl} alt="" />
                 </TaskS>
             })
         }
     }
-
-    
-    
 
     const dragAndDrop = () => {
         interact('.drag').draggable({
@@ -78,26 +84,42 @@ const BoardProject = () => {
         interact('.drop')
             .dropzone({
                 ondrop: function (event) {
-                    console.log()
                     event.target.insertAdjacentElement('beforeend', event.relatedTarget)
+                    let newTask={
+                        id:event.relatedTarget.id,
+                        status:{
+                            id:task.status.id = event.target.id
+                        }
+                    }
+                    setTask(newTask)                  
                 }
             })
             .on('dropactivate', function (event) {
                 event.target.classList.add('drop-activated')
             })
     }
-   
+
     dragAndDrop()
 
-    const handleClose=()=>{
-        let answer=confirm("¿Estas seguro de que deseas borrar esta tarea?, el proceso es irreversible")
-        if(answer){
+    const handleClose = () => {
+        let answer = confirm("¿Estas seguro de que deseas borrar esta tarea?, el proceso es irreversible")
+        if (answer) {
             setModalIsOpen(false)
         }
         return
-    
+
     }
-    
+
+    useEffect(()=>{
+        if(task.id=="" || task.status===""){
+            return
+        }
+        else{
+            taskSave.mutate(task)
+            console.log(task);
+        }
+    },[task])
+
     useEffect(() => {
         if (modalIsOpen) document.body.style.overflow = "hidden"
         else if (!modalIsOpen) document.body.style.overflow = ""
@@ -106,8 +128,8 @@ const BoardProject = () => {
 
 
     return (
-        <ContainerColumn bgcolor={Color.backgroundWhite}>        
-            <Container  justify="flex-start" align="flex-start" direction="column" height="auto">
+        <ContainerColumn bgcolor={Color.backgroundWhite}>
+            <Container justify="flex-start" align="flex-start" direction="column" height="auto">
                 <TaskSHeader>
                     <p>Projects / Project_Name / Board</p>
                     <TitleS>Lista de tareas</TitleS>
@@ -121,36 +143,29 @@ const BoardProject = () => {
             </Container>
             <ContainerFlex>
 
-            <Container align="flex-start" height="auto" wrap="wrap">
-                <BoardS className="drop">
-                    <p>BACKLOG</p>
-                    
-                </BoardS>
-                <BoardS className="drop">
-                    <p>ASIGNADA</p>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                       
-                    </TaskS>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                      
-                    </TaskS>
-                </BoardS>
-                <BoardS className="drop">
-                    <p>EN PROCESO</p>
-                    <TaskS className="drag" onClick={()=>{setModalIsOpen(true)}}>
-                      
-                    </TaskS>
-                </BoardS>
-                <BoardS className="drop">
-                    <p>COMPLETA</p>
-                </BoardS>
-            </Container>
+                <Container align="flex-start" height="auto" wrap="wrap">
+                    <BoardS id="1" className="drop">
+                        <p>BACKLOG</p>
+                        {loadTasks()}
+                    </BoardS>
+                    <BoardS id="2" className="drop">
+                        <p>ASIGNADA</p>
+
+                    </BoardS>
+                    <BoardS id="3" className="drop">
+                        <p>EN PROCESO</p>
+
+                    </BoardS>
+                    <BoardS id="4" className="drop">
+                        <p>COMPLETA</p>
+                    </BoardS>
+                </Container>
             </ContainerFlex>
 
             {modalIsOpen && createPortal(
-        <ModalPosition>
-        <ModalTask onClose={handleClose}/>        
-        </ModalPosition>,document.body
+                <ModalPosition>
+                    <ModalTask onClose={handleClose} />
+                </ModalPosition>, document.body
             )}
         </ContainerColumn>
     );

@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
     headers: {
         'Content-Type': 'application/json'
     },
-    baseURL:"http://localhost:8000"
+    baseURL:"http://localhost:8080"
 });
 
 axiosInstance.interceptors.request.use(

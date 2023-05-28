@@ -29,13 +29,12 @@ export const getProjectsByEmail = async (inputEmail: string) => {
 }
 
 export const getAllTask = async () => {
-    const config={
-        headers:{
-        }
-    }
-    const res = await userApi.post(`/api/v1/projects/getAllTask`,{
-        email:"hola@hotmail.com"
-    },config)
+    const res = await userApi.get(`/api/v1/projects/getAllTasks`)
+    return res.data
+}
+
+export const updateTaskState = async (taskData:object) => {
+    const res = await userApi.put(`/api/v1/projects/updateTaskState`,taskData)
     return res.data
 }
 
